@@ -25,6 +25,7 @@ public class HttpStatusChecker {
         int responseCode = connection.getResponseCode();
         if (responseCode == 404) {
             logger.error("Картинку не знайдено! Код відповіді 404");
+            return null;
         }
 
         return imageUrl;

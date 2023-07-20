@@ -16,7 +16,6 @@ public class HttpImageStatusCli {
 
         try {
             code = Integer.parseInt(scanner.nextLine());
-
         } catch (NumberFormatException e){
             logger.error("Please enter valid number");
             askStatus();
@@ -27,7 +26,6 @@ public class HttpImageStatusCli {
             new HttpStatusImageDownloader().downloadStatusImage(code);
         } catch (IOException e) {
             logger.error("There is not image for HTTP status {}", code);
-            askStatus();
         }finally {
             scanner.close();
         }
