@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class HttpImageStatusCli {
     private static Logger logger = LogManager.getLogger(HttpImageStatusCli.class);
-    public void askStatus(){
+    public void askStatus() throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println(("Enter HTTP status code"));
         HttpStatusChecker httpStatusChecker = new HttpStatusChecker();
@@ -22,12 +22,6 @@ public class HttpImageStatusCli {
         }finally {
             scanner.close();
         }
-        try {
             new HttpStatusImageDownloader().downloadStatusImage(code);
-        } catch (IOException e) {
-            logger.error("There is not image for HTTP status {}", code);
-        }finally {
-            scanner.close();
-        }
     }
 }
